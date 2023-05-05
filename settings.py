@@ -19,12 +19,12 @@ SESSION_CONFIGS = [
         app_sequence=['asypay_equalvote'],
         num_demo_participants=4,
     ),
-    dict(
-        name='equalpay_asyvote',
-        display_name="equal pay asy vote",
-        app_sequence=['equalpay_asyvote'],
-        num_demo_participants=4,
-    ),
+    # dict(
+    #     name='equalpay_asyvote',
+    #     display_name="equal pay asy vote",
+    #     app_sequence=['equalpay_asyvote'],
+    #     num_demo_participants=4,
+    # ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
