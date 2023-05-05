@@ -11,7 +11,7 @@ payoffs.
 class C(BaseConstants):
     NAME_IN_URL = 'asypay_equalvote'
     PLAYERS_PER_GROUP = 4
-    NUM_ROUNDS = 6
+    NUM_ROUNDS = 8
     VOTE_ROUND = NUM_ROUNDS/2 + 1
     PAYOFF_DC_L = cu(60)
     PAYOFF_CC_L = cu(50)
