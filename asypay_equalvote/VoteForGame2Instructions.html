@@ -1,0 +1,12 @@
+{{ block title }}Part II{{ endblock }}
+{{ block content }}
+
+    {{ if player.player_role == 'rich' }}
+    {{ include_sibling 'vote_cooperate_rich_instructions.html' }}
+    {{ else }}
+    {{ include_sibling 'vote_cooperate_poor_instructions.html' }}
+    {{ endif }}
+
+    {{ next_button }}
+
+{{ endblock }}

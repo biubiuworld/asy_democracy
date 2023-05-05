@@ -1,0 +1,62 @@
+{{ block title }}Game 1 Summary{{ endblock }}
+{{ block content }}
+
+
+    <h3>Part I</h3>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+             <tr>
+                 <th>Round</th>
+                 <th>You Choice</th>
+                 <th>Your Payoff</th>
+                 <th>Your Partner's Type</th>
+                 <th>Your Partner's Choice</th>
+                 <th>Your Partner's Payoff</th>
+             </tr>
+ {{ for p in player_all_game1_rounds }}
+             <tr>
+                 <td>{{ p.round_number }}</td>
+                 <td>{{ p.my_choice }}</td>
+                 <td>{{ p.payoff }}</td>
+                 <td>{{ p.opponent_type }}</td>
+                 <td>{{ p.opponent_choice }}</td>
+                 <td>{{ p.opponent_payoff }}</td>
+             </tr>
+ {{ endfor }}
+         </table>
+<p>
+    Your payoffs in Part I is {{ cum_payoff_game1 }}.
+</p>
+
+    <h3>Part II</h3>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+             <tr>
+                 <th>Round</th>
+                 <th>You Choice</th>
+                 <th>Your Payoff</th>
+                 <th>Your Partner's Type</th>
+                 <th>Your Partner's Choice</th>
+                 <th>Your Partner's Payoff</th>
+             </tr>
+ {{ for p in player_game2_rounds }}
+             <tr>
+                 <td>{{ p.game2_round }}</td>
+                 <td>{{ p.my_choice }}</td>
+                 <td>{{ p.payoff }}</td>
+                 <td>{{ p.opponent_type }}</td>
+                 <td>{{ p.opponent_choice }}</td>
+                 <td>{{ p.opponent_payoff }}</td>
+             </tr>
+ {{ endfor }}
+         </table>
+
+<p>
+    Your payoffs in part II is {{ cum_payoff_game2 }}.
+</p>
+
+<p>
+   Your total payoff in Game 1 is {{ final_payoff }}.
+</p>
+
+
+{{ next_button }}
+{{ endblock }}

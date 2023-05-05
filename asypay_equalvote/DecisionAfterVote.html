@@ -1,0 +1,215 @@
+{{ block title }}Your Choice{{ endblock }}
+{{ block content }}
+
+{{ if treatment == 'endoNo' or treatment == 'exoNo' }}
+{{ if player.player_role == 'rich' and opponent_role == 'rich' }}
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan="2"><span>You</span></th>
+                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">I will cooperate</button></td>
+                <td>{{C.PAYOFF_CC_H}}, {{C.PAYOFF_CC_H}}</td>
+                <td>{{ C.PAYOFF_CD_H }}, {{C.PAYOFF_DC_H}}</td>
+            </tr>
+            <tr>
+                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">I will defect</button></td>
+                <td>{{C.PAYOFF_DC_H}}, {{ C.PAYOFF_CD_H }}</td>
+                <td>{{C.PAYOFF_DD_H}}, {{C.PAYOFF_DD_H}}</td>
+            </tr>
+        </table>
+    </div>
+{{ include_sibling 'PD_rich_rich.html' }}
+    {{ elif player.player_role == 'rich' and opponent_role == 'poor' }}
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan="2"><span>You</span></th>
+                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">I will cooperate</button></td>
+                <td>{{C.PAYOFF_CC_H}}, {{C.PAYOFF_CC_L}}</td>
+                <td>{{ C.PAYOFF_CD_H }}, {{C.PAYOFF_DC_L}}</td>
+            </tr>
+            <tr>
+                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">I will defect</button></td>
+                <td>{{C.PAYOFF_DC_H}}, {{ C.PAYOFF_CD_L }}</td>
+                <td>{{C.PAYOFF_DD_H}}, {{C.PAYOFF_DD_L}}</td>
+            </tr>
+        </table>
+    </div>
+{{ include_sibling 'PD_rich_poor.html' }}
+{{ elif player.player_role == 'poor' and opponent_role == 'rich' }}
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan="2"><span>You</span></th>
+                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">I will cooperate</button></td>
+                <td>{{C.PAYOFF_CC_L}}, {{C.PAYOFF_CC_H}}</td>
+                <td>{{ C.PAYOFF_CD_L }}, {{C.PAYOFF_DC_H}}</td>
+            </tr>
+            <tr>
+                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">I will defect</button></td>
+                <td>{{C.PAYOFF_DC_L}}, {{ C.PAYOFF_CD_H }}</td>
+                <td>{{C.PAYOFF_DD_L}}, {{C.PAYOFF_DD_H}}</td>
+            </tr>
+        </table>
+    </div>
+{{ include_sibling 'PD_poor_rich.html' }}
+
+{{ elif player.player_role == 'poor' and opponent_role == 'poor' }}
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan="2"><span>You</span></th>
+                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">I will cooperate</button></td>
+                <td>{{C.PAYOFF_CC_L}}, {{C.PAYOFF_CC_L}}</td>
+                <td>{{ C.PAYOFF_CD_L }}, {{C.PAYOFF_DC_L}}</td>
+            </tr>
+            <tr>
+                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">I will defect</button></td>
+                <td>{{C.PAYOFF_DC_L}}, {{ C.PAYOFF_CD_L }}</td>
+                <td>{{C.PAYOFF_DD_L}}, {{C.PAYOFF_DD_L}}</td>
+            </tr>
+        </table>
+    </div>
+{{ include_sibling 'PD_poor_poor.html' }}
+{{ endif }}
+
+{{ else }}
+
+{{ if player.player_role == 'rich' and opponent_role == 'rich' }}
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan="2"><span>You</span></th>
+                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">I will cooperate</button></td>
+                <td>{{C.PAYOFF_CC_H}}, {{C.PAYOFF_CC_H}}</td>
+                <td>{{ C.PAYOFF_CD_H }}, {{C.PAYOFF_DC_COOPERATE_H}}</td>
+            </tr>
+            <tr>
+                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">I will defect</button></td>
+                <td>{{C.PAYOFF_DC_COOPERATE_H}}, {{ C.PAYOFF_CD_H }}</td>
+                <td>{{C.PAYOFF_DD_H}}, {{C.PAYOFF_DD_H}}</td>
+            </tr>
+        </table>
+    </div>
+{{ include_sibling 'CO_rich_rich.html' }}
+{{ elif player.player_role == 'rich' and opponent_role == 'poor' }}
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan="2"><span>You</span></th>
+                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">I will cooperate</button></td>
+                <td>{{C.PAYOFF_CC_H}}, {{C.PAYOFF_DC_COOPERATE_L}}</td>
+                <td>{{ C.PAYOFF_CD_H }}, {{C.PAYOFF_DC_L}}</td>
+            </tr>
+            <tr>
+                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">I will defect</button></td>
+                <td>{{C.PAYOFF_DC_COOPERATE_H}}, {{ C.PAYOFF_CD_L }}</td>
+                <td>{{C.PAYOFF_DD_H}}, {{C.PAYOFF_DD_L}}</td>
+            </tr>
+        </table>
+    </div>
+{{ include_sibling 'CO_rich_poor.html' }}
+
+{{ elif player.player_role == 'poor' and opponent_role == 'rich' }}
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan="2"><span>You</span></th>
+                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">I will cooperate</button></td>
+                <td>{{C.PAYOFF_CC_L}}, {{C.PAYOFF_CC_H}}</td>
+                <td>{{ C.PAYOFF_CD_L }}, {{C.PAYOFF_DC_COOPERATE_H}}</td>
+            </tr>
+            <tr>
+                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">I will defect</button></td>
+                <td>{{C.PAYOFF_DC_COOPERATE_L}}, {{ C.PAYOFF_CD_H }}</td>
+                <td>{{C.PAYOFF_DD_L}}, {{C.PAYOFF_DD_H}}</td>
+            </tr>
+        </table>
+    </div>
+{{ include_sibling 'CO_poor_rich.html' }}
+
+{{ elif player.player_role == 'poor' and opponent_role == 'poor' }}
+    <div class="form-group required">
+        <table class="table table-bordered text-center" style="width: auto; margin: auto">
+            <tr>
+                <th colspan="2" rowspan="2"></th>
+                <th colspan="2">Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan="2"><span>You</span></th>
+                <td><button name="cooperate" value="True" class="btn btn-primary btn-large">I will cooperate</button></td>
+                <td>{{C.PAYOFF_CC_L}}, {{C.PAYOFF_CC_L}}</td>
+                <td>{{ C.PAYOFF_CD_L }}, {{C.PAYOFF_DC_COOPERATE_L}}</td>
+            </tr>
+            <tr>
+                <td><button name="cooperate" value="False" class="btn btn-primary btn-large">I will defect</button></td>
+                <td>{{C.PAYOFF_DC_COOPERATE_L}}, {{ C.PAYOFF_CD_L }}</td>
+                <td>{{C.PAYOFF_DD_L}}, {{C.PAYOFF_DD_L}}</td>
+            </tr>
+        </table>
+    </div>
+{{ include_sibling 'CO_poor_poor.html' }}
+{{ endif }}
+
+{{ endif }}
+{{ endblock }}

@@ -1,0 +1,21 @@
+{{ block title }}PART II{{ endblock }}
+{{ block content }}
+{{ if player.group.treatment == 'exoNo' or player.group.treatment == 'endoNo' }}
+<p>
+    According to the result in voting stage, you and your group members will still play Game A (the original game).
+</p>
+
+    {{ include_sibling 'PD_poor_instructions.html' }}
+
+
+{{ else }}
+<p>
+    According to the result in voting stage, you and your group members will play Game B.
+</p>
+    {{ include_sibling 'CO_poor_instructions.html' }}
+
+{{ endif }}
+
+    {{ next_button }}
+
+{{ endblock }}

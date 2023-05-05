@@ -1,0 +1,46 @@
+<div class="card bg-light m-3">
+    <div class="card-body">
+
+        <h3>
+            Instructions
+        </h3>
+
+    <p>
+        You are <b style="color:Tomato;">type 1</b> in this game and your partner is <b style="color:DodgerBlue;">type 2</b>.
+    </p>
+        <p>
+           You and your partner choose <b>Cooperate</b> or <b>Defect</b> simultaneously and your payoffs are shown in the table below<i>(In each cell, the amount to the left is the payoff for
+        you and to the right for your partner.)</i>:
+       </p>
+
+        <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+            <tr>
+                <th colspan=2 rowspan=2></th>
+                <th colspan=2>Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan=2><span style="transform: rotate(-90deg);">You</span></th>
+                <th>Cooperate</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CC_H }}</b>, {{ C.PAYOFF_CC_L }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CD_H }}</b>, {{ C.PAYOFF_DC_COOPERATE_L }}</td>
+            </tr>
+            <tr>
+                <th>Defect</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DC_COOPERATE_H }}</b>, {{ C.PAYOFF_CD_L }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DD_H }}</b>, {{ C.PAYOFF_DD_L }}</td>
+            </tr>
+            </table>
+        <p>
+            If both of you choose Cooperate, you earn {{ C.PAYOFF_CC_H }} and your partner earn {{ C.PAYOFF_CC_L }}. <br>
+            If you choose Cooperate and your partner chooses Defect, you earn {{ C.PAYOFF_CD_H }} and your partner earns {{ C.PAYOFF_DC_COOPERATE_L }}. <br>
+            If you choose Defect and your partner chooses Cooperate, you earn {{ C.PAYOFF_DC_COOPERATE_H }} and your partner earns {{ C.PAYOFF_CD_L }}. <br>
+            If both of you choose Defect, you earn {{ C.PAYOFF_DD_H }} and your partner earns {{ C.PAYOFF_DD_L }}.
+        </p>
+
+
+</div>
+</div>

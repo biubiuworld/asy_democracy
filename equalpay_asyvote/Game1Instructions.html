@@ -1,0 +1,21 @@
+{{ block title }}Game 1{{ endblock }}
+{{ block content }}
+<div class="card bg-light m-3">
+    <div class="card-body">
+    <p>
+        In this game, you will be randomly divided into groups of four. The group constellations do not change during Game 1.
+    </p>
+
+        <h4> Part I </h4>
+        <p>
+            In this part you will play ten rounds of a game (Game A) together with your partner. Your partner is randomly and anonymously chosen from your three group members in every round.
+       </p>
+
+    {{ include_sibling 'PD_poor_instructions.html' }}
+
+</div>
+</div>
+
+    {{ next_button }}
+
+{{ endblock }}

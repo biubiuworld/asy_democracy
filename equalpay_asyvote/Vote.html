@@ -1,0 +1,81 @@
+{{ extends "global/Page.html" }}
+{{ block title }}Vote{{ endblock }}
+
+
+{{ block content }}
+
+<div class="card bg-light m-3">
+    <div class="card-body">
+
+        <p>Your payoff in Game A: </p>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+            <tr>
+                <th colspan=2 rowspan=2></th>
+                <th colspan=2>Your Partner Choice</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan=2><span style="transform: rotate(-90deg);">You</span></th>
+                <th>Cooperate</th>
+                <td>{{ C.PAYOFF_CC_L }}, {{ C.PAYOFF_CC_L }}</td>
+                <td>{{ C.PAYOFF_CD_L }}, {{ C.PAYOFF_DC_L }}</td>
+            </tr>
+            <tr>
+                <th>Defect</th>
+                <td>{{ C.PAYOFF_DC_L }}, {{ C.PAYOFF_CD_L }}</td>
+                <td>{{ C.PAYOFF_DD_L }}, {{ C.PAYOFF_DD_L }}</td>
+            </tr>
+            </table>
+
+                <p>Your payoff in Game B: </p>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+            <tr>
+                <th colspan=2 rowspan=2></th>
+                <th colspan=2>Your Partner Choice</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan=2><span style="transform: rotate(-90deg);">You</span></th>
+                <th>Cooperate</th>
+                <td>{{ C.PAYOFF_CC_L }}, {{ C.PAYOFF_CC_L }}</td>
+                <td>{{ C.PAYOFF_CD_L }}, {{ C.PAYOFF_DC_COOPERATE_L }}</td>
+            </tr>
+            <tr>
+                <th>Defect</th>
+                <td>{{ C.PAYOFF_DC_COOPERATE_L }}, {{ C.PAYOFF_CD_L }}</td>
+                <td>{{ C.PAYOFF_DD_L }}, {{ C.PAYOFF_DD_L }}</td>
+            </tr>
+            </table>
+
+
+    <p>
+        Now you can choose how many additional shares you want to buy ({{ C.COST_VOTING }} per share) and decide which game you vote for.
+        <br>
+        Whether Game B is implemented in PART II is based on:
+        <ol>
+        <li>
+            majority rule
+        </li>
+        <li>
+            whether the computer overrides your group decision with 50% chance. If your group decision is overriden by the computer, the computer will randomly choose Game A or Game B in your group.
+            In that case, you don't need to pay for the costs of additional shares.
+        </li>
+        </ol>
+    </p>
+        <p>
+            <b>Your payoff in part I: {{ payoff_game1 }} </b>. Your purchase cannot exceed you payoff in part I.
+        </p>
+
+
+    {{ formfields }}
+
+    {{ next_button }}
+    </div>
+    </div>
+{{ endblock }}

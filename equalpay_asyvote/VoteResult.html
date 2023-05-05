@@ -1,0 +1,17 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+{{ if if_override == 'overrides' }}
+    <p>
+        You vote for {{ if_vote }}. In your group, {{ total_if_vote }} out of {{ total_shares }} vote for Game B. The computer <b> {{ if_override }}</b> your group decision and chooses {{ treatment }} for you. Therefore, your group will play {{ treatment }} in part II.
+    </p>
+{{ else }}
+    <p>
+        You vote for {{ if_vote }}. In your group, {{ total_if_vote }} out of {{ total_shares }} vote for Game B. The computer <b> {{ if_override }}</b> your group decision. Therefore, your group will play {{ treatment }} in part II.
+    </p>
+{{ endif }}
+
+
+
+    {{ next_button }}
+
+{{ endblock }}

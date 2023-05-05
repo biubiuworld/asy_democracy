@@ -1,0 +1,30 @@
+{{ block title }}Game 1{{ endblock }}
+{{ block content }}
+<div class="card bg-light m-3">
+    <div class="card-body">
+    <p>
+        In this game, you will be randomly divided into groups of four. <b>Each group contains two type 1 players and two type 2 players.</b> The group constellations do not change during Game 1.
+    </p>
+        {{ if player.player_role == 'rich' }}
+        <p style="text-align:center">You are <b style="color:Tomato;">type 1</b> in this game.</p>
+     <h4> Part I </h4>
+
+        <p>
+            In this part you are  <b style="color:Tomato;">type 1</b> and you will play ten rounds of a game (Game A) together with your partner. Your partner is randomly and anonymously chosen from your three group members in every round. So <i>your partner could be different, either type 1 or type 2, in every round</i>.
+       </p>
+    {{ include_sibling 'PD_rich_instructions.html' }}
+    {{ else }}
+        <p style="text-align:center">You are <b style="color:DodgerBlue;">type 2</b> in this game.</p>
+     <h4> Part I </h4>
+
+        <p>
+            In this part you are  <b style="color:DodgerBlue;">type 2</b> and you will play ten rounds of a game (Game A) together with your partner. Your partner is randomly and anonymously chosen from your three group members in every round. So <i>your partner could be different, either type 1 or type 2, in every round</i>.
+       </p>
+    {{ include_sibling 'PD_poor_instructions.html' }}
+    {{ endif }}
+
+    {{ next_button }}
+
+</div>
+</div>
+{{ endblock }}

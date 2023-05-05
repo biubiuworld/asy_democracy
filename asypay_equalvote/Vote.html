@@ -1,0 +1,122 @@
+{{ extends "global/Page.html" }}
+{{ block title }}Vote{{ endblock }}
+{{ block content }}
+
+<div class="card bg-light m-3">
+    <div class="card-body">
+        {{ if player.player_role == 'poor' }}
+        <p>Your payoff in Game A: </p>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+            <tr>
+                <th colspan=2 rowspan=2></th>
+                <th colspan=2>Your Partner Choice</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan=2><span style="transform: rotate(-90deg);">You</span></th>
+                <th>Cooperate</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CC_L }}</b>, {{ C.PAYOFF_CC_L }} or {{ C.PAYOFF_CC_H }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CD_L }}</b>, {{ C.PAYOFF_DC_L }} or {{ C.PAYOFF_DC_H }}</td>
+            </tr>
+            <tr>
+                <th>Defect</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DC_L }}</b>, {{ C.PAYOFF_CD_L }} or {{ C.PAYOFF_CD_H }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DD_L }}</b>, {{ C.PAYOFF_DD_L }} or {{ C.PAYOFF_DD_H }}</td>
+            </tr>
+            </table>
+
+                <p>Your payoff in Game B: </p>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+            <tr>
+                <th colspan=2 rowspan=2></th>
+                <th colspan=2>Your Partner Choice</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan=2><span style="transform: rotate(-90deg);">You</span></th>
+                <th>Cooperate</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CC_L }}</b>, {{ C.PAYOFF_CC_L }} or {{ C.PAYOFF_CC_H }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CD_L }}</b>, {{ C.PAYOFF_DC_COOPERATE_L }} or {{ C.PAYOFF_DC_COOPERATE_H }}</td>
+            </tr>
+            <tr>
+                <th>Defect</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DC_COOPERATE_L }}</b>, {{ C.PAYOFF_CD_L }} or {{ C.PAYOFF_CD_H }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DD_L }}</b>, {{ C.PAYOFF_DD_L }} or {{ C.PAYOFF_DD_H }}</td>
+            </tr>
+            </table>
+
+        {{ elif player.player_role == 'rich' }}
+         <p>Your payoff in Game A: </p>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+            <tr>
+                <th colspan=2 rowspan=2></th>
+                <th colspan=2>Your Partner Choice</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan=2><span style="transform: rotate(-90deg);">You</span></th>
+                <th>Cooperate</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CC_H }}</b>, {{ C.PAYOFF_CC_L }} or {{ C.PAYOFF_CC_H }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CD_H }}</b>, {{ C.PAYOFF_DC_L }} or {{ C.PAYOFF_DC_H }}</td>
+            </tr>
+            <tr>
+                <th>Defect</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DC_H }}</b>, {{ C.PAYOFF_CD_L }} or {{ C.PAYOFF_CD_H }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DD_H }}</b>, {{ C.PAYOFF_DD_L }} or {{ C.PAYOFF_DD_H }}</td>
+            </tr>
+            </table>
+
+                <p>Your payoff in Game B: </p>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+            <tr>
+                <th colspan=2 rowspan=2></th>
+                <th colspan=2>Your Partner Choice</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan=2><span style="transform: rotate(-90deg);">You</span></th>
+                <th>Cooperate</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CC_H }}</b>, {{ C.PAYOFF_CC_L }} or {{ C.PAYOFF_CC_H }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CD_H }}</b>, {{ C.PAYOFF_DC_COOPERATE_L }} or {{ C.PAYOFF_DC_COOPERATE_H }}</td>
+            </tr>
+            <tr>
+                <th>Defect</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DC_COOPERATE_H }}</b>, {{ C.PAYOFF_CD_L }} or {{ C.PAYOFF_CD_H }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DD_H }}</b>, {{ C.PAYOFF_DD_L }} or {{ C.PAYOFF_DD_H }}</td>
+            </tr>
+            </table>
+        {{ endif }}
+
+    <p>
+        Now you and your group members decide to whether modify game from Game A to Game B. You could vote for 'Yes' or 'No'.
+        <br>
+        Whether Game B is implemented is based on:
+        <ol>
+        <li>
+            majority rule
+        </li>
+        <li>
+            whether the computer overrides your group decision with 50% chance. If your group decision is overriden by the computer, the computer will randomly choose Game A or Game B in your group.
+        </li>
+        </ol>
+    </p>
+
+
+    {{ formfields }}
+
+    {{ next_button }}
+    </div>
+    </div>
+{{ endblock }}

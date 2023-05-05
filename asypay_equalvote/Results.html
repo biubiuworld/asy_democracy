@@ -1,0 +1,64 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+
+{{ if player.round_number < C.VOTE_ROUND }}
+
+    <h3>Part I</h3>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+             <tr>
+                 <th>Round</th>
+                 <th>You Choice</th>
+                 <th>Your Payoff</th>
+                 <th>Your Partner's Type</th>
+                 <th>Your Partner's Choice</th>
+                 <th>Your Partner's Payoff</th>
+             </tr>
+ {{ for p in player_all_rounds }}
+             <tr>
+                 <td>{{ p.round_number }}</td>
+                 <td>{{ p.my_choice }}</td>
+                 <td>{{ p.payoff }}</td>
+                 <td>{{ p.opponent_type }}</td>
+                 <td>{{ p.opponent_choice }}</td>
+                 <td>{{ p.opponent_payoff }}</td>
+             </tr>
+ {{ endfor }}
+         </table>
+{{ if player.round_number == before_vote_round }}
+<p>
+    Your payoff in Part I is {{ cum_payoff_game1 }}.
+</p>
+{{ endif }}
+
+{{ else }}
+
+    <h3>Part II</h3>
+         <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+             <tr>
+                 <th>Round</th>
+                 <th>You Choice</th>
+                 <th>Your Payoff</th>
+                 <th>Your Partner's Type</th>
+                 <th>Your Partner's Choice</th>
+                 <th>Your Partner's Payoff</th>
+             </tr>
+ {{ for p in player_game2_rounds }}
+             <tr>
+                 <td>{{ p.game2_round }}</td>
+                 <td>{{ p.my_choice }}</td>
+                 <td>{{ p.payoff }}</td>
+                 <td>{{ p.opponent_type }}</td>
+                 <td>{{ p.opponent_choice }}</td>
+                 <td>{{ p.opponent_payoff }}</td>
+             </tr>
+ {{ endfor }}
+         </table>
+{{ if player.round_number == C.NUM_ROUNDS }}
+<p>
+    Your payoff in Part II is {{ cum_payoff_game2 }}.
+</p>
+{{ endif }}
+
+{{ endif }}
+{{ next_button }}
+{{ endblock }}

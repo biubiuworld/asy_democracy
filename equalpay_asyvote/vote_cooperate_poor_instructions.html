@@ -1,0 +1,65 @@
+<div class="card bg-light m-3">
+    <div class="card-body">
+
+
+    <p>
+        In this part, you and your three group members start with a vote. <br>
+        Each of you are endowed with one share. <b>But you can buy more shares with a cost of {{ C.COST_VOTING }} per share to have more influence on the voting stage. </b> <br>
+        Your purchase cannot exceed your earning in Part I. <br>
+        You and your group members collectively decide which game(Game A or Game B) your group will play for 10 rounds in part II. Game A is the game you played in part I and Game B is similar but with different payoffs:
+       </p>
+
+
+            <table class='table table-bordered text-center' style='width: auto; margin: auto'>
+            <tr>
+                <th colspan=2 rowspan=2></th>
+                <th colspan=2>Your Partner</th>
+            </tr>
+            <tr>
+                <th>Cooperate</th>
+                <th>Defect</th>
+            </tr>
+            <tr>
+                <th rowspan=2><span style="transform: rotate(-90deg);">You</span></th>
+                <th>Cooperate</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CC_L }}</b>,, {{ C.PAYOFF_CC_L }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_CD_L }}</b>,, {{ C.PAYOFF_DC_COOPERATE_L }}</td>
+            </tr>
+            <tr>
+                <th>Defect</th>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DC_COOPERATE_L }}</b>,, {{ C.PAYOFF_CD_L }}</td>
+                <td><b style="color:SlateBlue;">{{ C.PAYOFF_DD_L }}</b>,, {{ C.PAYOFF_DD_L }}</td>
+            </tr>
+            </table>
+        <p>
+            If both of you choose Cooperate, you both earn {{ C.PAYOFF_CC_L }}. <br>
+            If you choose Cooperate and your partner chooses Defect, you earn {{ C.PAYOFF_CD_L }} and your partner earns {{ C.PAYOFF_DC_COOPERATE_L }}. <br>
+            If you choose Defect and your partner chooses Cooperate, you earn {{ C.PAYOFF_DC_COOPERATE_L }} and your partner earns {{ C.PAYOFF_CD_L }}. <br>
+            If both of you choose Defect, you both earn {{ C.PAYOFF_DD_L }}.
+        </p>
+
+    <p>
+        After each round, you will see your partner’s option and your payoff.
+    </p>
+    </p>
+
+        <h3>
+            Vote Stage
+        </h3>
+    <p>
+        In the vote stage, you need to
+        <ol>
+        <li>choose the amount of additional shares you want to buy;</li>
+        <li>decide which game you vote for.</li>
+    </ol>
+    After all of you make decisions, which game is implemented depends on two rules:
+        <ul>
+        <li>Firstly, the vote result is based on the majority rule. That is, if over half of shares vote for game A, then game A wins.</li>
+        <li>Secondly, your group decision is taken into consideration with a 50% chance. For example, if your group decides game A, but your group decision is not taken into account, the computer will randomly choose a game for you. In that case, you don't need to pay for your additional shares.</li>
+        </ul>
+    You will be informed about the voting results after you make your own vote decision and click the next button.
+
+    </p>
+
+</div>
+</div>

@@ -1,0 +1,41 @@
+{{ block title }}Part II{{ endblock }}
+{{ block content }}
+<div class="card bg-light m-3">
+    <div class="card-body">
+{{ if player.group.treatment == 'exoNo' or player.group.treatment == 'endoNo' }}
+<p>
+    According to the result in voting stage, you and your group members will still play Game A (the original game).
+</p>
+    {{ if player.player_role == 'rich' }}
+        <p>
+        You are still  <b style="color:Tomato;">type 1</b>.
+       </p>
+    {{ include_sibling 'PD_rich_instructions.html' }}
+    {{ elif player.player_role == 'poor' }}
+        <p>
+        You are still  <b style="color:DodgerBlue;">type 2</b>.
+       </p>
+    {{ include_sibling 'PD_poor_instructions.html' }}
+    {{ endif }}
+
+{{ else }}
+        <p>
+    According to the result in voting stage, you and your group members will play Game B.
+</p>
+    {{ if player.player_role == 'rich' }}
+        <p>
+        You are still  <b style="color:Tomato;">type 1</b>.
+       </p>
+    {{ include_sibling 'CO_rich_instructions.html' }}
+    {{ elif player.player_role == 'poor' }}
+        <p>
+        You are still  <b style="color:DodgerBlue;">type 2</b>.
+       </p>
+    {{ include_sibling 'CO_poor_instructions.html' }}
+    {{ endif }}
+{{ endif }}
+</div>
+</div>
+    {{ next_button }}
+
+{{ endblock }}
